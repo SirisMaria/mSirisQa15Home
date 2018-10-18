@@ -12,7 +12,10 @@ public class GroupCreationTests extends TestBase{
     public void testGroupCreation() {
         openGroupsPage();
         initGroupCreation();
-        fillGroupForm("name test", "lalalala", "tratatatata");
+        fillGroupForm(new Group()
+                .setGroupName("name test")
+                .setGroupHeader("lalalala")
+                .setGroupFooter("tratatatata"));
         submitGroupCreation();
         returnToTheGroupPage();
 

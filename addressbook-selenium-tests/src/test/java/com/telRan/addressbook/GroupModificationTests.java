@@ -1,12 +1,21 @@
 package com.telRan.addressbook;
 
-import org.openqa.selenium.By;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
  * Created by Gran1 on 15/10/2018.
  */
+
+
 public class GroupModificationTests extends TestBase {
+    @BeforeMethod
+    public void preconditions() {
+        openGroupsPage();
+        if (!isGroupPresent()) {
+            createGroup();
+        }
+    }
 
     @Test
     public void testGroupModification(){
@@ -14,7 +23,10 @@ public class GroupModificationTests extends TestBase {
         openGroupsPage();
         selectGroup();
         initGroupModification();
-        fillGroupForm("modifyed","new","Changed");
+        fillGroupForm(new Group()
+                .setGroupName("modifyed")
+                .setGroupHeader("new")
+                .setGroupFooter("Change"));
         submitGroupModification();
         returnToTheGroupPage();
 
