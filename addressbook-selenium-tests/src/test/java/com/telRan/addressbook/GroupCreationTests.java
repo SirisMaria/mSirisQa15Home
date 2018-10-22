@@ -12,19 +12,19 @@ public class GroupCreationTests extends TestBase{
 
     @Test
     public void testGroupCreation() {
-        app.openGroupsPage();
+        app.getGroupHelper().openGroupsPage();
 
-        int before = app.getGroupsCount();
+        int before = app.getGroupHelper().getGroupsCount();
 
-        app.initGroupCreation();
-        app.fillGroupForm(new Group()
+        app.getGroupHelper().initGroupCreation();
+        app.getGroupHelper().fillGroupForm(new Group()
                 .setGroupName("name test")
                 .setGroupHeader("lalalala")
                 .setGroupFooter("tratatatata"));
-        app.submitGroupCreation(By.name("submit"));
-        app.returnToTheGroupPage();
+        app.getGroupHelper().submitGroupCreation(By.name("submit"));
+        app.getGroupHelper().returnToTheGroupPage();
 
-        int after = app.getGroupsCount();
+        int after = app.getGroupHelper().getGroupsCount();
         Assert.assertEquals(after,before+1);
 
 
