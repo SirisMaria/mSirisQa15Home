@@ -1,6 +1,6 @@
 package com.telRan.addressbook;
 
-import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -11,17 +11,21 @@ public class GroupDeletionTest extends TestBase{
 
     @BeforeMethod
     public void preconditions() {
-        openGroupsPage();
-        if (!isGroupPresent()) {
-            createGroup();
+        app.openGroupsPage();
+        if (!app.isGroupPresent()) {
+            app.createGroup();
         }
     }
     @Test
     public void testGroupDeletion(){
-        openGroupsPage();
-        selectGroup();
-        deleteGroup();
-        returnToTheGroupPage();
+        app.openGroupsPage();
+        int before = app.getGroupsCount();
+        app.selectGroup();
+        app.deleteGroup();
+        app.returnToTheGroupPage();
+        int after = app.getGroupsCount();
+        Assert.assertEquals(after,before-1);
+
     }
 
 }
