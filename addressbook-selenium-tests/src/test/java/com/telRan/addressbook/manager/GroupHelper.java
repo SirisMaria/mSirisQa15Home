@@ -1,20 +1,17 @@
-package com.telRan.addressbook;
+package com.telRan.addressbook.manager;
 
+import com.telRan.addressbook.model.Group;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 /**
  * Created by Gran1 on 22/10/2018.
  */
-public class GroupHelper {
-    WebDriver wd;
+public class GroupHelper extends HelperBase{
 
 
-    public void type(By locator, String text) {
-        click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+    public GroupHelper(WebDriver wd) {
+        super(wd);
     }
 
     public void returnToTheGroupPage() {
@@ -55,19 +52,6 @@ public class GroupHelper {
     public void deleteGroup() {
         click(By.name("delete"));
 
-    }
-
-    public void click(By locator) {
-        wd.findElement(locator).click();
-    }
-
-    public boolean isElementPresent(By locator) {
-        try {
-            wd.findElement(locator);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
     }
 
     public boolean isGroupPresent(){

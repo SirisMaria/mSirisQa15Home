@@ -1,6 +1,7 @@
-package com.telRan.addressbook;
+package com.telRan.addressbook.tests;
 
 
+import com.telRan.addressbook.model.Group;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
