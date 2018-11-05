@@ -1,17 +1,20 @@
 package com.telRan.addressbook.tests;
 
 import com.telRan.addressbook.manager.ApplicationManager;
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 
 /**
  * Created by Gran1 on 15/10/2018.
  */
 public class TestBase {
 
-    protected ApplicationManager app = new ApplicationManager();
+    protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
 
-    @BeforeClass
+    @BeforeSuite
 
 
     public void setUp() {
@@ -20,7 +23,7 @@ public class TestBase {
 
 
     //------------------------------------------------------------------------------
-    @AfterClass
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         app.stop();
     }

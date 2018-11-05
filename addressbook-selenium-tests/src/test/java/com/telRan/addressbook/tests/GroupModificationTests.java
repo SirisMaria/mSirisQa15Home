@@ -19,7 +19,7 @@ public class GroupModificationTests extends TestBase {
         }
     }
 
-    @Test
+    @Test(enabled = true)
     public void testGroupModification() {
 
         app.getGroupHelper().openGroupsPage();
