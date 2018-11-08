@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     testCompile 'org.testng:testng:6.14.3'
-    testcompile 'org.seleniumhq.selenium:selenium-java:3.141.0'
+    testCompile 'org.seleniumhq.selenium:selenium-java:3.141.0'
 }
 
 test{
