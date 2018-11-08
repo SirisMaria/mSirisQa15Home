@@ -35,7 +35,7 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         navigationHelper = new NavigationHelper(wd);
 
-        navigationHelper.openSite("http://localhost:8080/addressbook");
+        navigationHelper.openSite("http://localhost:8081/addressbook");
         sessionHelper = new SessionHelper(wd);
 
         sessionHelper.login("admin", "secret");
