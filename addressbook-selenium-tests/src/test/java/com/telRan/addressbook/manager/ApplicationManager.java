@@ -29,7 +29,7 @@ public class ApplicationManager {
             wd = new ChromeDriver();
         }else if(browser.equals(BrowserType.FIREFOX)){
             wd = new FirefoxDriver();
-        }else if(browser.equals(BrowserType.IE)){
+        }else if(browser.equals(BrowserType.CHROME )){
             wd = new EdgeDriver();
         }
         wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
